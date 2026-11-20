@@ -1,0 +1,13 @@
+export type ThemeMode = 'light' | 'dark';
+
+export const THEME_STORAGE_KEY = 'finmate_theme';
+
+export function resolveInitialTheme(
+  storedValue: string | null | undefined,
+  systemPrefersDark: boolean
+): ThemeMode {
+  if (storedValue === 'dark' || storedValue === 'light') {
+    return storedValue;
+  }
+  return systemPrefersDark ? 'dark' : 'light';
+}
